@@ -26,5 +26,5 @@ CREATE TABLE destinations (
     user_id INT REFERENCES users(id),
     country_id INT REFERENCES countries(id),
     city_id INT REFERENCES city(id),
-    favorite_thing VARCHAR(255)
+    favorite_thing TEXT
 );
