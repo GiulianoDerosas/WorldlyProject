@@ -10,7 +10,7 @@ def save(destination):
     sql = "INSERT INTO destinations (user_id, country_id, city_id, favorite_thing) VALUES (%s, %s, %s, %s) RETURNING id"
     values = [destination.user.id, destination.country.id, destination.city.id, destination.favorite_thing]
     results = run_sql(sql, values)
-    user.id = results[0]['id']
+    destination.id = results[0]['id']
     return destination
 
 # Select all destinations
