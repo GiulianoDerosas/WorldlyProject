@@ -25,6 +25,6 @@ CREATE TABLE destinations (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id),
     country_id INT REFERENCES countries(id),
-    city_id INT REFERENCES city(id),
+    city_id INT REFERENCES cities(id),
     favorite_thing TEXT
 );

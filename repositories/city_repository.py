@@ -10,7 +10,7 @@ def save(city):
     sql = "INSERT INTO cities (country_id, city_name) VALUES (%s, %s) RETURNING id"
     values = [city.country.id, city.city_name]
     results = run_sql(sql, values)
-    user.id = results[0]['id']
+    city.id = results[0]['id']
     return city
 
 # Select all cities

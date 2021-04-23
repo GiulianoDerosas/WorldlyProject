@@ -10,7 +10,7 @@ def save(country):
     sql = "INSERT INTO countries (country_name) VALUES (%s) RETURNING id"
     values = [country.country_name]
     results = run_sql(sql, values)
-    user.id = results[0]['id']
+    country.id = results[0]['id']
     return country
 
 # Select all countries
