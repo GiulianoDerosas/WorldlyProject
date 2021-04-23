@@ -5,6 +5,8 @@ from models.city import City
 from models.country import Country
 from models.destination import Destination
 
+import repositories.country_repository as country_repository
+
 # Save a city to the database
 def save(city):
     sql = "INSERT INTO cities (country_id, city_name) VALUES (%s, %s) RETURNING id"
@@ -31,7 +33,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        city = City(country, result['city_name'], result['id'])
+        city = City(result['city_name'], result['id'])
     return city
 
 # Delete all cities

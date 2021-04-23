@@ -5,6 +5,10 @@ from models.city import City
 from models.country import Country
 from models.destination import Destination
 
+import repositories.user_repository as user_repository
+import repositories.city_repository as city_repository
+import repositories.country_repository as country_repository
+
 # Save a destination to the database
 def save(destination):
     sql = "INSERT INTO destinations (user_id, country_id, city_id, favorite_thing) VALUES (%s, %s, %s, %s) RETURNING id"
