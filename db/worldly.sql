@@ -1,3 +1,4 @@
+DROP TABLE destinations;
 DROP TABLE cities;
 DROP TABLE countries;
 DROP TABLE users;
@@ -18,4 +19,11 @@ CREATE TABLE cities (
     id SERIAL PRIMARY KEY,
     city_name VARCHAR(255),
     country_id INT REFERENCES countries(id)
+);
+
+CREATE TABLE destinations (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id),
+    country_id INT REFERENCES countries(id),
+    city_id INT REFERENCES city(id)
 );
