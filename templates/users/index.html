@@ -4,7 +4,7 @@
 <h1>Users</h1>
   {% for user in users %}
   <p>
-    {{user.first_name}} {{user.last_name}} {{user.favorite_destination}}
+    <a href="/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a> {{user.favorite_destination}}
   </p>
   {% endfor %}
 

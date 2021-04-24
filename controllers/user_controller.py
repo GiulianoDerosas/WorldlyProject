@@ -21,3 +21,8 @@ def create_user():
     user = User(first_name, last_name, favorite_destination)
     user_repository.save(user)
     return redirect('/users')
+
+@users_blueprint.route("/users/<id>")
+def display_user_profile(id):
+    user = user_repository.select(id)
+    return render_template("users/profile.html", user=user)
