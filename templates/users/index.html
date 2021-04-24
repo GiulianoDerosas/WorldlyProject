@@ -2,16 +2,10 @@
 
 {% block content %}
 <h1>Users</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-  
-  </tr>
   {% for user in users %}
-  <tr>
-    <td><a href="/users/{{ user.id }}"> {{user.name}} </a></td>
-  </tr>
+  <p>
+    {{user.first_name}} {{user.last_name}} {{user.favorite_destination}}
+  </p>
   {% endfor %}
-</table>
+
 {% endblock %}

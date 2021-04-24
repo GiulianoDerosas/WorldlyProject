@@ -16,5 +16,14 @@ app.register_blueprint(destinations_blueprint)
 def home():
     return render_template('index.html')
 
+@app.route("/", methods=['POST'])
+def create_user():
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    favorite_destination = request.form['favorite_destination']
+    user = User(first_name, last_name, favorite_destination)
+    user_repository.save(user)
+    return redirect('/users')
+
 if __name__ == '__main__':
     app.run(debug=True)
