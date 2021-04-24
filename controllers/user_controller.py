@@ -13,11 +13,11 @@ def users():
     users = user_repository.select_all()
     return render_template("users/index.html", users = users)
 
-# @users_blueprint.route("/", methods=['POST'])
-# def create_user():
-#     first_name = request.form['first_name']
-#     last_name = request.form['last_name']
-#     favorite_destination = request.form['favorite_destination']
-#     user = User(first_name, last_name, favorite_destination)
-#     user_repository.save(user)
-#     return redirect('/users')
+@users_blueprint.route("/users", methods=['POST'])
+def create_user():
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    favorite_destination = request.form['favorite_destination']
+    user = User(first_name, last_name, favorite_destination)
+    user_repository.save(user)
+    return redirect('/users')
