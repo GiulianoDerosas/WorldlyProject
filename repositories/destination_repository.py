@@ -11,8 +11,8 @@ import repositories.country_repository as country_repository
 
 # Save a destination to the database
 def save(destination):
-    sql = "INSERT INTO destinations (user_id, country_id, city_id, favorite_thing) VALUES (%s, %s, %s, %s) RETURNING id"
-    values = [destination.user.id, destination.country.id, destination.city.id, destination.favorite_thing]
+    sql = "INSERT INTO destinations (user_id, country_id, city_id, visited) VALUES (%s, %s, %s, %s) RETURNING id"
+    values = [destination.user.id, destination.country.id, destination.city.id, destination.visited]
     results = run_sql(sql, values)
     destination.id = results[0]['id']
     return destination
@@ -26,7 +26,7 @@ def select_all():
         user = user_repository.select(row['user_id'])
         country = country_repository.select(row['country_id'])
         city = city_repository.select(row['city_id'])
-        destination = Destination(user, country, city, row['favorite_thing'], row['id'])
+        destination = Destination(user, country, city, row['visited'], row['id'])
         destinations.append(destination)
     return destinations
 
@@ -37,7 +37,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        destination = Destination(user, country, city, row['favorite_thing'], row['id'])
+        destination = Destination(user, country, city, row['visited'], row['id'])
     return destination
 
 # Delete all destinations

@@ -18,7 +18,7 @@ country_repository.save(country_1)
 city_1 = City(country_1, 'Bangkok')
 city_repository.save(city_1)
 
-destination_1 = Destination(user_1, country_1, city_1, 'Street Food')
+destination_1 = Destination(user_1, country_1, city_1, True)
 destination_repository.save(destination_1)
 
 

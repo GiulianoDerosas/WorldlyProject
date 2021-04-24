@@ -3,4 +3,26 @@
 {% block content %}
 <h1>Hey, {{user.first_name}} </h1>
 
+<h1>Add an item to your bucketlist!</h1>
+
+<form action="/users/{{user.id}}" method="post">
+  <label for="country_id">Select a Country:</label>
+    <select name="country" id="country">
+      {% for country in countries %}
+      <option value="{{country.id}}">{{country.name}}</option>
+      {% endfor %}
+    </select>
+  
+  <label for="city_id">Select a city:</label>
+    <select name="city" id="city">
+      {% for city in cities %}
+      <option value="{{city.id}}">{{city.name}}</option>
+      {% endfor %}
+    </select>
+
+    <label for="visited">Have you been here?</label>
+    <input type="checkbox">
+
+  <input class="btn btn--action" type='submit' value="Add">
+</form>
 {% endblock %}
