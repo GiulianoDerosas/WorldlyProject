@@ -7,7 +7,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
-    visited BOOLEAN
+    favorite_destination VARCHAR(255)
 );
 
 CREATE TABLE countries (
@@ -26,5 +26,4 @@ CREATE TABLE destinations (
     user_id INT REFERENCES users(id),
     country_id INT REFERENCES countries(id),
     city_id INT REFERENCES cities(id),
-    favorite_thing TEXT
 );
