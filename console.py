@@ -15,10 +15,13 @@ user_repository.save(user_1)
 country_1 = Country('Thailand')
 country_repository.save(country_1)
 
+country_2 = Country('Japan')
+country_repository.save(country_2)
+
 city_1 = City(country_1, 'Bangkok')
 city_repository.save(city_1)
 
-destination_1 = Destination(user_1, country_1, city_1, True)
+destination_1 = Destination(user_1, country_1, city_1)
 destination_repository.save(destination_1)
 
 

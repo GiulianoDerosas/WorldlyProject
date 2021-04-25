@@ -9,6 +9,7 @@ import repositories.destination_repository as destination_repository
 
 users_blueprint = Blueprint("users", __name__)
 
+# Get requests for /users route
 @users_blueprint.route("/users")
 def users():
     users = user_repository.select_all()
@@ -17,6 +18,7 @@ def users():
     destinations = destination_repository.select_all()
     return render_template("users/index.html", users=users, countries=countries, cities=cities, destinations=destinations)
 
+# Creates a new user
 @users_blueprint.route("/users", methods=['POST'])
 def create_user():
     first_name = request.form['first_name']
@@ -26,17 +28,31 @@ def create_user():
     user_repository.save(user)
     return redirect('/users')
 
+# Create an individual profile page 
 @users_blueprint.route("/users/<id>")
 def display_user_profile(id):
     user = user_repository.select(id)
     return render_template("users/profile.html", user=user)
 
-@users_blueprint.route("/users<id>",  methods=['POST'])
+# GET for new bucketlist entry
+@users_blueprint.route("/users", methods=['GET'])
+def new_entry():
+    users = user_repository.select_all()
+    countries = country_repository.select_all()
+    cities = city_repository.select_all()
+    return render_template("users", users = users, countries = countries, cities = cities)
+
+# POST for new bucketlist_entry
+@users_blueprint.route("/users",  methods=['POST'])
 def create_bucket_list_entry():
-    country_id = request.form['country_id']
-    city_id = request.form['city_id']
-    visited = request.form['visited']
+    user_id = request.form['user']
+    country_id = request.form['country']
+    city_id = request.form['city']
+
     user = user_repository.select(user_id)
-    new_entry = Destination(user, location, review)
-    destination_repository.save(new_entry)
-    return redirect('/visits')
+    country = country_repository.select(country_id)
+    city = city_repository.select(city_id)
+
+    destination = Destination(user, country, city)
+    destination_repository.save(destination)
+    return redirect('/users', user = user, country = country, city = city)
