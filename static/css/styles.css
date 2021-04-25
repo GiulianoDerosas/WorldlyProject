@@ -91,3 +91,50 @@ body {
     color: #edf0f1;
 }
 
+.add_user_btn:hover {
+    background-color: rgba(0,136,169,0.8);
+}
+
+.input_field {
+    box-sizing: border-box;
+    padding: 9px 25px;
+    margin: 30px 20px 0px 10px;
+    border: 2px solid #edf0f1;
+    border-radius: 30px;
+    width: 220px;
+    font-family: "Fira Sans", sans-serif;
+    font-size: inherit;
+    color: #edf0f1;
+    box-shadow: none;
+}
+
+.input_field:focus {
+    border: 2px solid #0088a9;
+}
+
+::placeholder {
+    color: #0088a9;
+}
+
+.create_user_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 700px;
+}
+
+.label_su {
+    position: relative;
+    top: -35px;
+    left: 110px;
+    color: #edf0f1;
+}
+
+.label_sufd {
+    position: relative;
+    top: -35px;
+    left: 180px;
+    color: #edf0f1;
+}
+
