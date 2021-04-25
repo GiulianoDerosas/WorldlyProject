@@ -30,7 +30,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        user = User(result['first_name'], result['last_name'], result['id'] )
+        user = User(result['first_name'], result['last_name'], result['id'])
     return user
 
 # Delete all users
