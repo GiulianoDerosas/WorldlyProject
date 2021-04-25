@@ -6,21 +6,21 @@
 <h1>Add a destination!</h1>
 
 <form action="/users" method="post">
-  <label for="user">Select a user:</label>
+  <label for="users">Select a user:</label>
   <select name="user" id="user">
     {% for user in users %}
     <option value="{{user.id}}">{{user.first_name}}</option>
     {% endfor %}
   </select>
 
-  <label for="country">Select a country:</label>
+  <label for="countries">Select a country:</label>
   <select name="country" id="country">
     {% for country in countries %}
     <option value="{{country.id}}">{{country.name}}</option>
     {% endfor %}
   </select>
 
-  <label for="city">Select a city:</label>
+  <label for="cities">Select a city:</label>
   <select name="city" id="city">
     {% for city in cities %}
     <option value="{{city.id}}">{{city.name}}</option>

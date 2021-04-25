@@ -34,25 +34,22 @@ def display_user_profile(id):
     user = user_repository.select(id)
     return render_template("users/profile.html", user=user)
 
-# GET for new bucketlist entry
-@users_blueprint.route("/users", methods=['GET'])
-def new_entry():
+
+# Get requests for /users/<id>
+@users_blueprint.route("/users/<id>")
+def destination_get():
     users = user_repository.select_all()
     countries = country_repository.select_all()
     cities = city_repository.select_all()
-    return render_template("users", users = users, countries = countries, cities = cities)
+    destinations = destination_repository.select_all()
+    return render_template("users/profile.html", users=users, countries=countries, cities=cities, destinations=destinations)
 
-# POST for new bucketlist_entry
-@users_blueprint.route("/users",  methods=['POST'])
-def create_bucket_list_entry():
-    user_id = request.form['user']
-    country_id = request.form['country']
-    city_id = request.form['city']
-
-    user = user_repository.select(user_id)
-    country = country_repository.select(country_id)
-    city = city_repository.select(city_id)
-
-    destination = Destination(user, country, city)
+# Creates a new destination
+@users_blueprint.route("/users/<id>", methods=['POST'])
+def create_destination():
+    user_id = request.form['users']
+    country_id = request.form['countries']
+    city_id = request.form['cities']
+    destination = Destination(user_id, country_id, city_id)
     destination_repository.save(destination)
-    return redirect('/users', user = user, country = country, city = city)
+    return render_template('/users/<id>')

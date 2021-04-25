@@ -1,4 +1,7 @@
+/* NAV BAR STYLING */
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap');
 
 * {
     box-sizing: border-box;
@@ -59,3 +62,32 @@ button {
 button:hover {
     background-color: rgba(0,136,169,0.8);
 }
+/* ------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+h1 {
+    color: #edf0f1;
+}
+
+p {
+    color: #edf0f1;
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+}
+/* ------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+/* SIGN-UP FORM STYLING */
+
+.add_user_btn {
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
+    font-family: "Montserrat";
+    color: #edf0f1;
+}
+

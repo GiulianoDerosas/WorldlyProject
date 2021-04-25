@@ -2,14 +2,16 @@
 
 {% block content %}
 <p>Create your dream travel bucket-list!</p>
-
+<div class="create_user_form">
 <form action="/users" method="post">
-    <label for="first_name">First Name:</label>
-    <input type="text" id="first_name" name="first_name" placeholder="First Name" required autofocus>
-    <label for="last_name">Last Name:</label>
-    <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
-    <label for="favorite_destination">Favorite Destination:</label>
-    <input type="text" id="favorite_destination" name="favorite_destination" placeholder="Favorite Destination" required>
-    <input class="btn btn--action" type='submit' value="Add User">
+    <label class="form_label"for="first_name">First Name:</label>
+    <input class="input_field" type="text" id="first_name" name="first_name" placeholder="First Name" required autofocus>
+    <label class="form_label"for="last_name">Last Name:</label>
+    <input class="input_field" type="text" id="last_name" name="last_name" placeholder="Second Name" required>
+    <label class="form_label"for="favorite_destination">Favorite Destination:</label>
+    <input class="input_field" type="text" id="favorite_destination" name="favorite_destination" placeholder="Favorite Destination" required>
+
+    <input class="add_user_btn" type='submit' value="Add User">
 </form>
+</div>
 {% endblock %}
