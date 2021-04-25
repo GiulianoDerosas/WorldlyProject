@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<p>Create your dream travel bucket-list!</p>
+<h1 class="fade_title">Create your dream travel bucket-list with Worldly!</h1>
 <div class="create_user_form">
 <form action="/users" method="post">
     <label class="label_su"for="first_name">First Name:</label>
@@ -12,5 +12,18 @@
     <input class="input_field" type="text" id="favorite_destination" name="favorite_destination" placeholder="Cuba" required>
     <input class="add_user_btn" type='submit' value="Add User">
 </form>
+</div>
+
+<div>
+    <img class="center_image" src="/static/images/IMG_20210425_181936.jpg" alt="">
+</div>
+
+<div>.box
+  i(class='fas fa-quote-left fa2')
+  .text
+    i(class='fas fa-quote-right fa1')
+</div>
+      h3 Quote the day
+      p “Jobs fill your pockets, adventures fill your soul.”
 </div>
 {% endblock %}

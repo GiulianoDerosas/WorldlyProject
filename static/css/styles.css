@@ -62,8 +62,10 @@ button {
 button:hover {
     background-color: rgba(0,136,169,0.8);
 }
+
 /* ------------------------------------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------- */
+/* TEXT COLOUR & FONT STYLING */
 h1 {
     color: #edf0f1;
 }
@@ -118,7 +120,7 @@ body {
 
 .create_user_form {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     position: relative;
     top: 700px;
@@ -136,5 +138,36 @@ body {
     top: -35px;
     left: 180px;
     color: #edf0f1;
+}
+
+/* ------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+/* FADE IN CENTER STYLING */
+
+.fade_title {
+    display: flex;
+    justify-content: center;
+    animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+ }
+}
+
+.center_image {
+    display: flex;
+    height: 400px;
+    width: auto;
+    position: relative;
+    left: 500px;
+    border: 1px;
+    border-radius: 71% 29% 70% 30% / 37% 30% 70% 63%;
 }
 
