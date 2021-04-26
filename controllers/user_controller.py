@@ -28,7 +28,7 @@ def create_user():
     user_repository.save(user)
     return redirect('/users')
 
-# Create an individual profile page 
+# Create an individual profile page
 @users_blueprint.route("/users/<id>")
 def display_user_profile(id):
     user = user_repository.select(id)
@@ -55,3 +55,36 @@ def create_destination(id):
     destination = Destination(user, country, city, visited)
     destination_repository.save(destination)
     return redirect(f'/users/{id}')
+
+# Deletes a destination entry
+@users_blueprint.route("/destinations/<id>/delete", methods=['POST'])
+def delete_destination(id):
+    destination_repository.delete(id)
+    return redirect('/users')
+
+# Updates a destination entry
+@users_blueprint.route("/destinations/<id>/update", methods=['GET'])
+def update_destination_get(id):
+    destination = destination_repository.select(id)
+    cities = city_repository.select_all()
+    countries = country_repository.select_all()
+    return render_template('/destinations/update.html', destination = destination, cities = cities, countries = countries)
+
+# Updates a destination entry
+@users_blueprint.route("/destinations/<id>", methods=["POST"])
+def update_destination(id):
+    user_id = destination.user.id
+    country_id = equest.form["countries"]
+    city_id = request.form["cities"]
+    visited = request.form["visited"]
+
+    user = user_repository.select(user_id)
+    country = country_repository.select(country_id)
+    city = city_repository.select(city_id)
+    if visited == True:
+        visited = True
+    else: False
+
+    destination = Destination(user, country, city, visited)
+    destination_repository.update(destination)
+    return redirect("/users")

@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Hello</h1>
+
+<form action="/destinations/{{destination.id}}" method="post">
+  <label for="countries">Select a country:</label>
+  <select name="countries" id="countries">
+    <option>Select</option>
+    {% for country in countries %}
+    <option value="{{country.id}}">{{country.country_name}}</option>
+    {% endfor %}
+  </select>
+
+  <label for="cities">Select a city:</label>
+  <select name="cities" id="cities">
+    <option>Select</option>
+    {% for city in cities %}
+    <option value="{{city.id}}">{{city.city_name}}</option>
+    {% endfor %}
+  </select>
+
+  <label for="visited">Have you visited?</label>
+  <select name="visited" id="visited">
+    <option>Select</option>
+    <option value="True">Yes</option>
+    <option value="False">No</option>
+
+
+  <input type='submit' value="update">
+</form>
+
+{% endblock %}

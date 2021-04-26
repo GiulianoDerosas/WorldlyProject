@@ -33,19 +33,56 @@
 </form>
 
 <div>
-
+Visited List:
   {% for destination in destinations %}
-    {% if user.first_name == destination.user.first_name %}
+    {% if user.first_name == destination.user.first_name and destination.visited == True %}
     <ul>
       <li>{{destination.user.first_name}}</li>
       <li>{{destination.country.country_name}}</li>
       <li>{{destination.city.city_name}}</li>
       <li>{{destination.visited}}</li>
     </ul>
+
+    <p>
+      <form action="/destinations/{{destination.id}}/delete" method="POST">
+        <input type="submit" value="delete"/>
+      </form>
+    </p>
+
+    <p>
+      <form action="/destinations/{{destination.id}}update" method="GET">
+        <input type="submit" value="update"/>
+      </form>
+    </p>
     {% endif %}
   {% endfor %}
-
 </div>
+
+<div>
+  Not Visited List:
+    {% for destination in destinations %}
+      {% if user.first_name == destination.user.first_name and destination.visited == False %}
+      <ul>
+        <li>{{destination.user.first_name}}</li>
+        <li>{{destination.country.country_name}}</li>
+        <li>{{destination.city.city_name}}</li>
+        <li>{{destination.visited}}</li>
+      </ul>
+
+      <p>
+        <form action="/destinations/{{destination.id}}/delete" method="POST">
+          <input type="submit" value="delete"/>
+        </form>
+      </p>
+
+      <p>
+        <form action="/destinations/{{destination.id}}/update" method="GET">
+          <input type="submit" value="update"/>
+        </form>
+      </p>
+      {% endif %}
+    {% endfor %}
+  </div>
 
 
 {% endblock %}

@@ -37,7 +37,10 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        destination = Destination(user, country, city, row['visited'], row['id'])
+        user = user_repository.select(result['user_id'])
+        country = country_repository.select(result['country_id'])
+        city = city_repository.select(result['city_id'])
+        destination = Destination(user, country, city, result['visited'], result['id'])
     return destination
 
 # Delete all destinations
@@ -51,8 +54,8 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-# Mark destination as visited
-def visited(destination):
+# Update the destination
+def update(id):
     sql = "UPDATE destinations SET (user_id, country_id, city_id, visited) = (%s, %s, %s, %s) WHERE id = %s"
     values = [destination.user.id, destination.country.id, destination.city.id, destination.visited]
     run_sql(sql, values)
