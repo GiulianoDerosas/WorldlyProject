@@ -3,12 +3,12 @@
 {% block content %}
 <h1>Hello</h1>
 
-<form action="/destinations/{{destination.id}}" method="post">
+<form action="/destinations/{{destination.id}}/update" method="post">
   <label for="countries">Select a country:</label>
   <select name="countries" id="countries">
     <option>Select</option>
     {% for country in countries %}
-    <option value="{{country.id}}">{{country.country_name}}</option>
+    <option value="{{country.id}}" {% if destination.id == destination.country.id %} selected {% endif %}>{{country.country_name}}</option>
     {% endfor %}
   </select>
 
@@ -16,7 +16,7 @@
   <select name="cities" id="cities">
     <option>Select</option>
     {% for city in cities %}
-    <option value="{{city.id}}">{{city.city_name}}</option>
+    <option value="{{city.id}}" {% if destination.id == destination.city.id %} selected {% endif %}>{{city.city_name}}</option>
     {% endfor %}
   </select>
 
@@ -25,7 +25,6 @@
     <option>Select</option>
     <option value="True">Yes</option>
     <option value="False">No</option>
-
 
   <input type='submit' value="update">
 </form>

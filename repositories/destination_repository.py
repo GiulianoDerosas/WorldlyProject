@@ -55,7 +55,7 @@ def delete(id):
     run_sql(sql, values)
 
 # Update the destination
-def update(id):
+def update(destination):
     sql = "UPDATE destinations SET (user_id, country_id, city_id, visited) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [destination.user.id, destination.country.id, destination.city.id, destination.visited]
+    values = [destination.user.id, destination.country.id, destination.city.id, destination.visited, destination.id]
     run_sql(sql, values)

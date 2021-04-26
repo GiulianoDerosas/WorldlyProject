@@ -71,10 +71,11 @@ def update_destination_get(id):
     return render_template('/destinations/update.html', destination = destination, cities = cities, countries = countries)
 
 # Updates a destination entry
-@users_blueprint.route("/destinations/<id>", methods=["POST"])
+@users_blueprint.route("/destinations/<id>/update", methods=["POST"])
 def update_destination(id):
+    destination = destination_repository.select(id)
     user_id = destination.user.id
-    country_id = equest.form["countries"]
+    country_id = request.form["countries"]
     city_id = request.form["cities"]
     visited = request.form["visited"]
 
@@ -85,6 +86,6 @@ def update_destination(id):
         visited = True
     else: False
 
-    destination = Destination(user, country, city, visited)
-    destination_repository.update(destination)
+    new_destination = Destination(user, country, city, visited)
+    destination_repository.update(new_destination)
     return redirect("/users")
