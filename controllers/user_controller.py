@@ -43,11 +43,15 @@ def create_destination(id):
     user_id = id
     country_id = request.form['countries']
     city_id = request.form['cities']
+    visited = request.form['visited']
 
     user = user_repository.select(id)
     country = country_repository.select(country_id)
     city = city_repository.select(city_id)
+    if visited == True:
+        visited = True
+    else: False
 
-    destination = Destination(user, country, city)
+    destination = Destination(user, country, city, visited)
     destination_repository.save(destination)
     return redirect(f'/users/{id}')

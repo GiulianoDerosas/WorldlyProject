@@ -1,8 +1,8 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Create your dream travel bucket-list with Worldly!</h1>
-<div>
+<h1 class="fade_title">Create your dream travel bucket-list with Worldly!</h1>
+<div class="create_user_form">
 <form action="/users" method="post">
     <label class="label_su"for="first_name">First Name:</label>
     <input class="input_field" type="text" id="first_name" name="first_name" placeholder="Ernest" required autofocus>
@@ -14,5 +14,18 @@
 </form>
 </div>
 
+<div>
+    <img class="center_image" src="/static/images/v01-shape-011.png" alt="">
+</div>
+
+
+<div>
+    <h1><pre class="blockq">"YOU HAVE NOTHING
+    TO LOSE, AND A 
+    WORLD TO SEE"</pre></h1>
+</div>
+
+
+<h2 class="fade_title_2">Get started by filling the fields below..</h2>
 
 {% endblock %}
