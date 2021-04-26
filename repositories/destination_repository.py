@@ -51,23 +51,8 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-# def country(destination):
-#     sql = "SELECT * FROM countries WHERE id = %s"
-#     values = [destination.country.id]
-#     results = run_sql(sql, values)[0]
-#     country = Country(results['name'], results['id'])
-#     return country
-
-# def city(destination):
-#     sql = "SELECT * FROM cities WHERE id = %s"
-#     values = [destination.city.id]
-#     results = run_sql(sql, values)[0]
-#     city = City(results['name'], country, results['id'])
-#     return city
-
-# def user(destination):
-#     sql = "SELECT * FROM users WHERE id = %s"
-#     values = [destination.user.id]
-#     results = run_sql(sql, values)[0]
-#     user = User(results['first_name'], results['last_name'], results['favorite_destination'], results['id'])
-#     return user
+# Mark destination as visited
+def visited(destination):
+    sql = "UPDATE destinations SET (user_id, country_id, city_id, visited) = (%s, %s, %s, %s) WHERE id = %s"
+    values = []
+    run_sql(sql, values)
