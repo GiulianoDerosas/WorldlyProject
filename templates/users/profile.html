@@ -1,33 +1,36 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Hey, {{user.first_name}} </h1>
+<h1 class="profile_header">Hey, {{user.first_name}} </h1>
 
-<h1>Add a destination!</h1>
+<h1 class="profile_header">Add a destination!</h1>
 
-<form action="/users" method="post">
+<form class="create_destination_form" action="/users" method="post">
   <label for="users">Select a user:</label>
   <select name="user" id="user">
+    <option class="input_field_2">Select</option>
     {% for user in users %}
-    <option value="{{user.id}}">{{user.first_name}}</option>
+    <option class="input_field_2" value="{{user.id}}">{{user.first_name}}</option>
     {% endfor %}
   </select>
 
   <label for="countries">Select a country:</label>
   <select name="country" id="country">
+    <option class="input_field_2">Select</option>
     {% for country in countries %}
-    <option value="{{country.id}}">{{country.name}}</option>
+    <option class="input_field_2" value="{{country.id}}">{{country.name}}</option>
     {% endfor %}
   </select>
 
   <label for="cities">Select a city:</label>
   <select name="city" id="city">
+    <option class="input_field_2">Select</option>
     {% for city in cities %}
-    <option value="{{city.id}}">{{city.name}}</option>
+    <option class="input_field_2" value="{{city.id}}">{{city.name}}</option>
     {% endfor %}
   </select>
 
-  <input class="btn btn--action" type='submit' value="Add">
+  <input class="add_destination_btn" type='submit' value="Add">
 </form>
 
 {% endblock %}

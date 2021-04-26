@@ -42,7 +42,7 @@ def destination_get():
     countries = country_repository.select_all()
     cities = city_repository.select_all()
     destinations = destination_repository.select_all()
-    return render_template("users/profile.html", users=users, countries=countries, cities=cities, destinations=destinations)
+    return render_template("users/<id>", users=users, countries=countries, cities=cities, destinations=destinations)
 
 # Creates a new destination
 @users_blueprint.route("/users/<id>", methods=['POST'])

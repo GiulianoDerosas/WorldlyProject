@@ -3,8 +3,9 @@
 {% block content %}
 <h1>Users</h1>
   {% for user in users %}
-  <p>
-    <a href="/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a> {{user.favorite_destination}}
+  <p class="each_user">
+    <a href="/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a><br>
+    Favorite Destination: {{user.favorite_destination}}
   </p>
   {% endfor %}
 
