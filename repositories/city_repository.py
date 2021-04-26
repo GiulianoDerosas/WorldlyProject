@@ -33,7 +33,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        city = City(result['city_name'], result['id'])
+        city = City( result['country_id'], result['city_name'], result['id'])
     return city
 
 # Delete all cities

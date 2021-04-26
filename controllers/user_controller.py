@@ -32,24 +32,22 @@ def create_user():
 @users_blueprint.route("/users/<id>")
 def display_user_profile(id):
     user = user_repository.select(id)
-    return render_template("users/profile.html", user=user)
-
-
-# Get requests for /users/<id>
-@users_blueprint.route("/users/<id>")
-def destination_get():
-    users = user_repository.select_all()
     countries = country_repository.select_all()
     cities = city_repository.select_all()
     destinations = destination_repository.select_all()
-    return render_template("users/<id>", users=users, countries=countries, cities=cities, destinations=destinations)
+    return render_template("/users/profile.html", user=user, countries=countries, cities=cities, destinations=destinations)
 
 # Creates a new destination
 @users_blueprint.route("/users/<id>", methods=['POST'])
-def create_destination():
-    user_id = request.form['users']
+def create_destination(id):
+    user_id = id
     country_id = request.form['countries']
     city_id = request.form['cities']
-    destination = Destination(user_id, country_id, city_id)
+
+    user = user_repository.select(id)
+    country = country_repository.select(country_id)
+    city = city_repository.select(city_id)
+
+    destination = Destination(user, country, city)
     destination_repository.save(destination)
-    return render_template('/users/<id>')
+    return redirect(f'/users/{id}')
