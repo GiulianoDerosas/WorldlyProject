@@ -86,6 +86,6 @@ def update_destination(id):
         visited = True
     else: False
 
-    new_destination = Destination(user, country, city, visited)
+    new_destination = Destination(user, country, city, visited, id)
     destination_repository.update(new_destination)
     return redirect("/users")

@@ -76,9 +76,6 @@ img {
     margin-left: 20px;
 }
 
-.ctnb:hover {
-    pointer-events: none;
-}
 /* SHOWCASE */
 
 .showcase {
@@ -365,6 +362,13 @@ img {
 .social {
     position: relative;
     left: 55px;
+}
+
+.footer-wrap {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 /* TABLETS */
