@@ -1,39 +1,69 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Hey, {{user.first_name}} </h1>
+<h2 class="md text-center my-2">Hey, {{user.first_name}}</h2>
+<h3 class="md text-center my-2">Add a destination!</h1>
 
-<h1>Add a destination!</h1>
+<div class="container flex">
+  <section>
+    <form action="/users/{{user.id}}" method="post">
+      <label for="countries">Select a country:</label>
+      <select name="countries" id="countries">
+        <option>Select</option>
+        {% for country in countries %}
+        <option value="{{country.id}}">{{country.country_name}}</option>
+        {% endfor %}
+      </select>
 
-<form action="/users/{{user.id}}" method="post">
-  <label for="countries">Select a country:</label>
-  <select name="countries" id="countries">
-    <option>Select</option>
-    {% for country in countries %}
-    <option value="{{country.id}}">{{country.country_name}}</option>
-    {% endfor %}
-  </select>
+      <label for="cities">Select a city:</label>
+      <select name="cities" id="cities">
+        <option>Select</option>
+        {% for city in cities %}
+        <option value="{{city.id}}">{{city.city_name}}</option>
+        {% endfor %}
+      </select>
 
-  <label for="cities">Select a city:</label>
-  <select name="cities" id="cities">
-    <option>Select</option>
-    {% for city in cities %}
-    <option value="{{city.id}}">{{city.city_name}}</option>
-    {% endfor %}
-  </select>
+      <label for="visited">Have you visited?</label>
+      <select name="visited" id="visited">
+        <option>Select</option>
+        <option value="True">Yes</option>
+        <option value="False">No</option>
 
-  <label for="visited">Have you visited?</label>
-  <select name="visited" id="visited">
-    <option>Select</option>
-    <option value="True">Yes</option>
-    <option value="False">No</option>
+      <input type='submit' value="Add">
+    </form>
+  </section>
+</div>
 
-
-  <input type='submit' value="Add">
-</form>
-
-<div>
 Visited List:
+
+<section class="user">
+  <div class="container flex">
+    {% for destination in destinations %}
+    {% if user.first_name == destination.user.first_name and destination.visited == True %}
+    <ul>
+      <li>{{destination.user.first_name}}</li>
+      <li>{{destination.country.country_name}}</li>
+      <li>{{destination.city.city_name}}</li>
+      <li>{{destination.visited}}</li>
+    </ul>
+  
+    <p>
+    <form action="/destinations/{{destination.id}}/delete" method="POST">
+      <input type="submit" value="delete" />
+    </form>
+    </p>
+  
+    <p>
+    <form action="/destinations/{{destination.id}}/update" method="GET">
+      <input type="submit" value="update" />
+    </form>
+    </p>
+    {% endif %}
+    {% endfor %}
+  </div>
+  </section>
+
+<!-- <div>
   {% for destination in destinations %}
     {% if user.first_name == destination.user.first_name and destination.visited == True %}
     <ul>
@@ -56,7 +86,7 @@ Visited List:
     </p>
     {% endif %}
   {% endfor %}
-</div>
+</div> -->
 
 <div>
   Not Visited List:

@@ -1,12 +1,20 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Users</h1>
-  {% for user in users %}
-  <p class="each_user">
-    <a href="/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a><br>
-    Favorite Destination: {{user.favorite_destination}}
-  </p>
-  {% endfor %}
+<section class="user">
+  <h2 class="md text-center my-2">Users</h2>
 
+
+  <div class="container flex">
+    {% for user in users %}
+      <div class="card">
+        <p class="each_user">
+          <img class="profile-pic" src="https://thispersondoesnotexist.com/image" alt="">
+          <h3><a href="/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></h3><br>
+          <h4>Favorite Destination: {{user.favorite_destination}}</h4>
+        </p>
+      </div>
+      {% endfor %}
+  </div>
+</section>
 {% endblock %}

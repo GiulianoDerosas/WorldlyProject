@@ -62,14 +62,23 @@ img {
     margin: 0 5px;
 }
 
-.navbar a:hover {
-    border-bottom: 2px #fff solid;
-}
-
 .navbar .flex {
     justify-content: space-between;
 }
 
+.ctnb {
+    padding: 9px 25px;
+    background-color: rgba(65, 179, 163, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
+}
+
+.ctnb:hover {
+    pointer-events: none;
+}
 /* SHOWCASE */
 
 .showcase {
@@ -107,8 +116,7 @@ img {
     margin: 30px 0;
 }
 
-.showcase-form input[type='text'], 
-.showcase-form input[type='email'] {
+.showcase-form input[type='text'] {
     border: 0;
     border-bottom: 1px solid #41B3A3;
     width: 100%;
@@ -132,6 +140,7 @@ img {
     transform: skewY(-3deg);
 }
 
+
 /* STATS */
 
 .stats {
@@ -146,6 +155,7 @@ img {
     font-size: 20px;
     font-weight: bold;
 }
+
 /* UTILITIES */
 .container {
     max-width: 1100px;
@@ -292,10 +302,6 @@ img {
 
 /* LANGUAGE CARDS */
 
-.languages section {
-    background: coral;
-}
-
 .languages .card {
     text-align: center;
     margin: 18px 10px 40px;
@@ -309,4 +315,93 @@ img {
 
 .languages .card:hover {
     transform: translateY(-8px);
+}
+
+/* USER CARDS */
+
+.user .flex {
+    flex-direction: row;
+}
+
+.user .card {
+    text-align: center;
+    margin: 18px 10px 40px;
+    transition: transform 0.2s ease-in;
+    color: #41B3A3;
+}
+
+.user .card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.user .card:hover {
+    transform: translateY(-5px);
+}
+
+.profile-pic {
+    border-radius: 50%;
+}
+
+
+/* FOOTER */
+
+
+
+.bg-dark {
+    background-color: #41B3A3;
+    color: #fff;
+}
+
+.bg-dark a {
+    color: #fff;
+}
+
+.footer .social a {
+    margin: 0 10px;
+    align-content: center;
+}
+
+.social {
+    position: relative;
+    left: 55px;
+}
+
+/* TABLETS */
+@media(max-width: 768px){
+    .grid,
+    .showcase .grid
+    .stats .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .showcase {
+        height: auto;
+    }
+
+    .showcase-text {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .showcase-form {
+        justify-self: center;
+        margin: auto;
+    }
+}
+
+/* MOBILE */
+@media(max-width: 500px){
+    .navbar {
+        height: 110px;
+    }
+
+    .navbar .flex {
+        flex-direction: column;
+    }
+
+    .navbar ul {
+        padding: 10px;
+    }
 }
