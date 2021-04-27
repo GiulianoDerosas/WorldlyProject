@@ -340,6 +340,28 @@ img {
     border-radius: 50%;
 }
 
+/* DESTINATION CARDS */
+
+.dest .card {
+    background-color: #E27D60;
+    text-align: center;
+}
+
+.dest .row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.ctnbn {
+    padding: 9px 25px;
+    background-color: rgba(65, 179, 163, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
 
 /* FOOTER */
 
