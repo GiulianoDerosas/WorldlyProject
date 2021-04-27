@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap');
 
 :root {
-    --primary-color: #047aed;
+    --primary-color: #E27D60;
 }
 
 * {
@@ -38,6 +38,10 @@ p {
 
 img {
     width: 100%;
+}
+
+.logo {
+    inline-size: 25%;
 }
 
 /* NAVBAR STYLING */
@@ -106,7 +110,7 @@ img {
 .showcase-form input[type='text'], 
 .showcase-form input[type='email'] {
     border: 0;
-    border-bottom: 1px solid #b4becb;
+    border-bottom: 1px solid #41B3A3;
     width: 100%;
     padding: 3px;
     font-size: 16px;
@@ -154,7 +158,7 @@ img {
     background-color: #fff;
     color: #333;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px rgba(24, 187, 136, 0.5);
     padding: 20px;
     margin: 10px;
 }
