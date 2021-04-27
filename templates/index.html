@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Create your dream travel bucket-list with Worldly!</h1>
+<!-- <h1>Create your dream travel bucket-list with Worldly!</h1>
 <div>
 <form action="/users" method="post">
     <label class="label_su"for="first_name">First Name:</label>
@@ -12,31 +12,31 @@
     <input class="input_field" type="text" id="favorite_destination" name="favorite_destination" placeholder="Cuba" required>
     <input class="add_user_btn" type='submit' value="Add User">
 </form>
-</div>
+</div> -->
 
 
   <!-- SHOWCASE -->
   <section class="showcase">
     <div class="container grid">
       <div class="showcase-text">
-        <h1>Header</h1>
-        <p>WooHoo Text!</p>
-        <a href="about.html" class="btn btn-outline">Read More</a>
+        <h1>Create your dream travel bucket-list with Worldly!</h1>
+        <p>Fill in the form to get started!</p>
+        <a href="about.html" class="btn btn-outline">See current users.</a>
       </div>
 
       <div class="showcase-form card">
-        <h2>Header 2</h2>
-        <form>
+        <h2>Create your Worldly profile!</h2>
+        <form action="/users" method="post">
             <div class="form-control">
-                <input type="text" name="name" placeholder="first name" required>
+                <input type="text" name="first_name" id="first_name" placeholder="First Name" required>
             </div>
             <div class="form-control">
-                <input type="text" name="company" placeholder="second name" required>
+                <input type="text" name="last_name" id="last_name" placeholder="Last Name" required>
             </div>
             <div class="form-control">
-                <input type="email" name="email" placeholder="fav destination" required>
+                <input type="text" name="favorite_destination" id="favorite_destination" placeholder="Your Favorite Destination" required>
             </div>
-            <input type="submit" value="Send" class="btn btn-primary">
+            <input type="submit" value="Start" class="btn btn-primary">
         </form>
       </div>
     </div>
