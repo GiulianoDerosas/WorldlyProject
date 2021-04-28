@@ -23,18 +23,5 @@ def home():
 def about():
     return render_template('about.html')
 
-# def worldly_score():
-#       num_of_dest = []
-#       destination_repository.select_all()
-#       user_repository.select_all()
-#       for destination in destinations:
-#         if destination.user.id == user.id and destination.visited == True:
-#           num_of_dest += 1
-#       return (len(num_of_dest) / 195) * 100
-
-# app.jinja_env.globals.update(worldly_score=worldly_score)
-
-
-
 if __name__ == '__main__':
     app.run(debug=True)

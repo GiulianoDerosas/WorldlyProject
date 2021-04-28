@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 
+import pdb
 from models.user import User
 from models.city import City
 from models.country import Country
@@ -59,3 +60,11 @@ def update(destination):
     sql = "UPDATE destinations SET (user_id, country_id, city_id, visited) = (%s, %s, %s, %s) WHERE id = %s"
     values = [destination.user.id, destination.country.id, destination.city.id, destination.visited, destination.id]
     run_sql(sql, values)
+
+def worldly_score(user_id):
+    destinations = select_all()
+    num_of_dest = 0
+    for destination in destinations:
+        if destination.visited == True and destination.user.id == int(user_id):
+            num_of_dest += 1
+    return (num_of_dest / 195) * 100

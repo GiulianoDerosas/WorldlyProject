@@ -43,3 +43,12 @@ def delete(id):
     sql = "DELETE FROM users WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+def worldly_score(id):
+    destination_repository.select_all()
+    user = id
+    num_of_dest = 0
+    for destination in destinations:
+        if destination.visited == True and destination.user.id == user:
+            num_of_dest += 1
+    return (num_of_dest / 195) * 100

@@ -35,7 +35,8 @@ def display_user_profile(id):
     countries = country_repository.select_all()
     cities = city_repository.select_all()
     destinations = destination_repository.select_all()
-    return render_template("/users/profile.html", user=user, countries=countries, cities=cities, destinations=destinations)
+    worldly_score = destination_repository.worldly_score(id)
+    return render_template("/users/profile.html", user=user, countries=countries, cities=cities, destinations=destinations, worldly_score = worldly_score)
 
 # Creates a new destination
 @users_blueprint.route("/users/<id>", methods=['POST'])
