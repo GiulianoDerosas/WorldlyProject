@@ -66,9 +66,10 @@ def delete_destination(id):
 @users_blueprint.route("/destinations/<id>/update", methods=['GET'])
 def update_destination_get(id):
     destination = destination_repository.select(id)
+    users = user_repository.select_all()
     cities = city_repository.select_all()
     countries = country_repository.select_all()
-    return render_template('/destinations/update.html', destination = destination, cities = cities, countries = countries)
+    return render_template('/destinations/update.html', destination = destination, cities = cities, countries = countries, user = users)
 
 # Updates a destination entry
 @users_blueprint.route("/destinations/<id>/update", methods=["POST"])

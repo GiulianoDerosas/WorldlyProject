@@ -1,32 +1,37 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Hello</h1>
+<h2 class="md text-center my-2">Making a change?</h2>
+<h3 class="md text-center my-2">Update your destination!</h1>
 
-<form action="/destinations/{{destination.id}}/update" method="post">
-  <label for="countries">Select a country:</label>
-  <select name="countries" id="countries">
-    <option>Select</option>
-    {% for country in countries %}
-    <option value="{{country.id}}" {% if destination.id == destination.country.id %} selected {% endif %}>{{country.country_name}}</option>
-    {% endfor %}
-  </select>
-
-  <label for="cities">Select a city:</label>
-  <select name="cities" id="cities">
-    <option>Select</option>
-    {% for city in cities %}
-    <option value="{{city.id}}" {% if destination.id == destination.city.id %} selected {% endif %}>{{city.city_name}}</option>
-    {% endfor %}
-  </select>
-
-  <label for="visited">Have you visited?</label>
-  <select name="visited" id="visited">
-    <option>Select</option>
-    <option value="True">Yes</option>
-    <option value="False">No</option>
-
-  <input type='submit' value="update">
-</form>
-
+  <!-- Add Destination Form -->
+<div class="container flex">
+  <section>
+    <form action="/destinations/{{destination.id}}/update" method="post">
+      <label for="countries">Select a country:</label>
+      <select name="countries" id="countries">
+        <option>Select</option>
+        {% for country in countries %}
+        <option value="{{country.id}}" {% if destination.id == destination.country.id %} selected {% endif %}>{{country.country_name}}</option>
+        {% endfor %}
+      </select>
+    
+      <label for="cities">Select a city:</label>
+      <select name="cities" id="cities">
+        <option>Select</option>
+        {% for city in cities %}
+        <option value="{{city.id}}" {% if destination.id == destination.city.id %} selected {% endif %}>{{city.city_name}}</option>
+        {% endfor %}
+      </select>
+    
+      <label for="visited">Have you visited?</label>
+      <select name="visited" id="visited">
+        <option>Select</option>
+        <option value="True">Yes</option>
+        <option value="False">No</option>
+    
+      <input class="ctnb" type='submit' value="Update">
+    </form>
+  </section>
+</div>
 {% endblock %}
