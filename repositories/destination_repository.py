@@ -67,4 +67,4 @@ def worldly_score(user_id):
     for destination in destinations:
         if destination.visited == True and destination.user.id == int(user_id):
             num_of_dest += 1
-    return (num_of_dest / 195) * 100
+    return round((num_of_dest / 195) * 100, 2)

@@ -4,6 +4,7 @@
 
 :root {
     --primary-color: #E27D60;
+    --secondary-color: rgba(65, 179, 163, 1);
 }
 
 * {
