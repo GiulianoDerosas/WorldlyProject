@@ -59,8 +59,11 @@ def create_destination(id):
 # Deletes a destination entry
 @users_blueprint.route("/destinations/<id>/delete", methods=['POST'])
 def delete_destination(id):
+    destination = destination_repository.select(id)
+    user_id = destination.user.id
+    user = user_repository.select(user_id)
     destination_repository.delete(id)
-    return redirect('/users')
+    return redirect(f"/users/{user.id}")
 
 # Updates a destination entry
 @users_blueprint.route("/destinations/<id>/update", methods=['GET'])
@@ -89,4 +92,4 @@ def update_destination(id):
 
     new_destination = Destination(user, country, city, visited, id)
     destination_repository.update(new_destination)
-    return redirect("/users")
+    return redirect(f"/users/{user.id}")

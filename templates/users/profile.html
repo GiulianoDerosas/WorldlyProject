@@ -40,15 +40,45 @@
 <!-- Sorts by visited and not visited -->
 <h2 class="md text-center my-2">Visited</h2>
 
-
-  {% for destination in destinations %}
-  {% if user.first_name == destination.user.first_name and destination.visited == True %}
+{% for destination in destinations %}
+{% if user.first_name == destination.user.first_name and destination.visited == True %}
 <div class="dest">
   <div class="row">
     <div class="card">
       <ul>
-        <li>{{destination.country.country_name}}</li>
-        <li>{{destination.city.city_name}}</li>
+        <li><a href="/destinations/country/{{destination.country.id}}">{{destination.country.country_name}}</a></li>
+        <li><a href="/destinations/city/{{destination.city.id}}">{{destination.city.city_name}}</a></li>
+      </ul>
+
+      <p>
+      <form action="/destinations/{{destination.id}}/delete" method="POST">
+        <input class="ctnbn" type="submit" value="delete" />
+      </form>
+      </p>
+
+      <p>
+      <form action="/destinations/{{destination.id}}/update" method="GET">
+        <input class="ctnbn" type="submit" value="update" />
+      </form>
+      </p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<br>
+
+<h2 class="text-center my-2">Not Visited</h2>
+
+{% for destination in destinations %}
+{% if user.first_name == destination.user.first_name and destination.visited == False %}
+<div class="dest">
+  <div class="row">
+    <div class="card">
+      <ul>
+        <li><a href="/destinations/country/{{destination.country.id}}">{{destination.country.country_name}}</a></li>
+        <li><a href="/destinations/city/{{destination.city.id}}">{{destination.city.city_name}}</a></li>
       </ul>
 
       <p>
@@ -66,38 +96,6 @@
     </div>
   </div>
   {% endfor %}
-</div>
-
-
-<h2 class="md text-center my-2">Not Visited</h2>
-
-<div class="dest">
-  <section>
-    <div class="row">
-      {% for destination in destinations %}
-      {% if user.first_name == destination.user.first_name and destination.visited == False %}
-      <div class="card">
-        <ul>
-          <li>{{destination.country.country_name}}</li>
-          <li>{{destination.city.city_name}}</li>
-        </ul>
-
-        <p>
-        <form action="/destinations/{{destination.id}}/delete" method="POST">
-          <input class="ctnbn" type="submit" value="delete" />
-        </form>
-        </p>
-
-        <p>
-        <form action="/destinations/{{destination.id}}/update" method="GET">
-          <input class="ctnbn" type="submit" value="update" />
-        </form>
-        </p>
-        {% endif %}
-      </div>
-      {% endfor %}
-    </div>
-  </section>
 </div>
 
 

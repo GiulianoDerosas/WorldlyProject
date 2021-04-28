@@ -12,7 +12,7 @@
       <select name="countries" id="countries">
         <option>Select</option>
         {% for country in countries %}
-        <option value="{{country.id}}" {% if destination.id == destination.country.id %} selected {% endif %}>{{country.country_name}}</option>
+        <option value="{{country.id}}" {% if destination.country.id == country.id %} selected {% endif %}>{{country.country_name}}</option>
         {% endfor %}
       </select>
     
@@ -20,15 +20,15 @@
       <select name="cities" id="cities">
         <option>Select</option>
         {% for city in cities %}
-        <option value="{{city.id}}" {% if destination.id == destination.city.id %} selected {% endif %}>{{city.city_name}}</option>
+        <option value="{{city.id}}" {% if destination.city.id == city.id %} selected {% endif %}>{{city.city_name}}</option>
         {% endfor %}
       </select>
     
       <label for="visited">Have you visited?</label>
       <select name="visited" id="visited">
         <option>Select</option>
-        <option value="True">Yes</option>
-        <option value="False">No</option>
+        <option value="True" {% if destination.visited == True %} selected {% endif %}>Yes</option>
+        <option value="False" {% if destination.visited == False %} selected {% endif %}>No</option>
     
       <input class="ctnb" type='submit' value="Update">
     </form>

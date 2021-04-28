@@ -325,6 +325,7 @@ img {
     margin: 18px 10px 40px;
     transition: transform 0.2s ease-in;
     color: #41B3A3;
+    size: 235px 390px;
 }
 
 .user .card h4 {
@@ -345,6 +346,7 @@ img {
 .dest .card {
     background-color: #E27D60;
     text-align: center;
+    width: 150px;
 }
 
 .dest .row {
@@ -363,9 +365,13 @@ img {
     transition: all 0.3s ease 0s;
 }
 
+/* COUNTRY PAGE STYLING */
+
+.yeet {
+    color: #E27D60;
+}
+
 /* FOOTER */
-
-
 
 .bg-dark {
     background-color: #41B3A3;
