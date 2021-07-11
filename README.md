@@ -1,4 +1,4 @@
-<h1 align="center"> Wordly </h1>
+<h1 align="center"> Wordly 🌎</h1>
 <h3 align="center"> A solo project built using Python, Flask & SQL.</h3>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
