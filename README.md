@@ -43,7 +43,7 @@
 
 <p>Here are a few screenshots from the site:</p>
 
-[url=https://ibb.co/pwkzDmb]<img align="justify" src="https://i.ibb.co/zGHGkhR/Screenshot-2021-07-11-at-5-29-28-PM.png" width="1280" />
+<img align="justify" src="https://i.ibb.co/zGHGkhR/Screenshot-2021-07-11-at-5-29-28-PM.png" width="1280" />
 <img align="justify" src="https://i.ibb.co/pRY6SBX/Screenshot-2021-07-11-at-5-30-18-PM.png" width="1280" />
 <img align="justify" src="https://i.ibb.co/jvdHRWS/Screenshot-2021-07-11-at-5-31-09-PM.png" width="1280" />
 <img align="justify" src="https://i.ibb.co/pPZpVKF/Screenshot-2021-07-11-at-5-31-23-PM.png" width="1280" />
