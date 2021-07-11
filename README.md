@@ -43,6 +43,6 @@
 
 <p>Here are a few screenshots from the site:</p>
 
-<img src="https://i.ibb.co/zGHGkhR/Screenshot-2021-07-11-at-5-29-28-PM.png" | width=100) />
+<img src="https://i.ibb.co/zGHGkhR/Screenshot-2021-07-11-at-5-29-28-PM.png" width="1280" />
 
 
